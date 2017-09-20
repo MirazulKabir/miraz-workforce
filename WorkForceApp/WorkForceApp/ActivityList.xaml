@@ -6,13 +6,13 @@
              BackgroundColor="White"
              >
     <ScrollView>
-        
+
         <RelativeLayout>
             <StackLayout x:Name="profileContainer"
                          HeightRequest="70">
-                <behavious:OutletDetails x:Name="profile"  />
+                <behavious:OutletDetails x:Name="profile"  Outlet_name="{Binding task.outletName}" />
             </StackLayout>
-           
+
             <Frame x:Name="second_panel"
                 HeightRequest="20"
                 CornerRadius="0"  
@@ -36,7 +36,7 @@
                           Style="{StaticResource profile_label}"
                           HorizontalOptions="CenterAndExpand"
                           FontSize="10" />
-                    
+
                     <Label x:Name="lbl_time_info"
                            Text="Starts from 8.30Am , 0 Hour Logged"
                            Style="{StaticResource profile_label}"
@@ -60,7 +60,7 @@
                        HorizontalOptions="CenterAndExpand"
                        FontSize="15"/>
 
-             
+
                 <StackLayout x:Name="timeLayout">
 
 

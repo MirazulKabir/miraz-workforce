@@ -15,7 +15,7 @@ namespace WorkForceApp
 
             // MainPage = new WorkForceApp.ActivityList();
             // MainPage = new NavigationPage(new MainPage());
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new ActivityList());
            
         }
 

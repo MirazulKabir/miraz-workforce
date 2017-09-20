@@ -4,41 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WorkForceApp.Model;
+using WorkForceApp.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace WorkForceApp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ActivityList : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ActivityList : ContentPage
+    {
+        int i = 0;
 
-        public enum Modes
+
+        public ActivityList()
         {
-           ListMode,DetailsMode
+
+            InitializeComponent();
+
+            Tasks task = new Tasks { name = "Colect money", outletName = "Cats Eye Outlet", startTime = "10:14", endTime = "Dhanmondi 3A" };
+
+            BindingContext = task;
+            OutletDetails.StartButtonClicked += BtnClicked;
+
+            //outletDetails.btnClicked();
+            // listView.ItemsSource = taskLists;
         }
-        Modes modes;
-
-        public ActivityList ()
-		{
-          
-            InitializeComponent ();
-
-            ProfileContainer profile = new ProfileContainer();
 
 
-            modes = Modes.ListMode;
-          
-            List<Tasks> taskLists = new List<Tasks>();
+        public void BtnClicked(object source, EventArgs e)
+        {
+            lbl_login_info.Text = "Clicked " + i;
+            i++;
+            // DisplayAlert("Btn clicked", "WOW using Delicate", "Ok");
+            // Console.WriteLine("asdkash");
+        }
 
-            for (int i = 0; i < 5; i++)
-            {
-                Tasks task = new Tasks { name = "Task "+i, startTime = "10", endTime = "11" };
-                taskLists.Add(task);
-            }
-          // listView.ItemsSource = taskLists;
-          
-		}
-  
+
+
+
     }
 }
