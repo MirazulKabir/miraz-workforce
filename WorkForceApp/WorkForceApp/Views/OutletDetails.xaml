@@ -18,23 +18,23 @@
                              Constant=0}"
                          Orientation="Horizontal">
 
-                <Label Text="Outlet Name"
+            <Label Text="{Binding outletName}"
                        x:Name="outlet_name"
                        VerticalOptions="Center" 
                        Style="{StaticResource profile_label}"  
                        HorizontalOptions="CenterAndExpand"
                        />
 
-                <BoxView x:Name="box" 
+            <BoxView x:Name="box" 
                   WidthRequest="1"
                   HeightRequest="70"
                   BackgroundColor="White"
                   HorizontalOptions="End"
                    />
-            </StackLayout>
-           
-           
-            <StackLayout Orientation="Vertical"
+        </StackLayout>
+
+
+        <StackLayout Orientation="Vertical"
                          RelativeLayout.WidthConstraint =
       "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.5, Constant=0}"
                          RelativeLayout.HeightConstraint =
@@ -43,8 +43,8 @@
       "{ConstraintExpression Type=RelativeToParent, Property=Width,  Factor=.5, Constant=0}"
                         HorizontalOptions="CenterAndExpand"
                         VerticalOptions="CenterAndExpand" >
-             
-                <Label Text="72/1 Dhanmondi Dhaka"
+
+            <Label Text="72/1 Dhanmondi Dhaka"
                        VerticalOptions="Center"
                             Style="{StaticResource profile_label}"  x:Name="outlet_address"
                        HorizontalOptions="Center"/>
@@ -55,7 +55,7 @@
                              >
                 <Button x:Name="start_time_btn"
                         Style="{StaticResource normal_button_style}"
-                        Clicked="start_time_btn_Clicked"
+                       
                         Text="Start"  FontSize="8" />
 
 
@@ -66,11 +66,11 @@
             </StackLayout>
 
         </StackLayout>
-            
 
-    
 
-     
+
+
+
 
     </RelativeLayout>
 </ContentView>
