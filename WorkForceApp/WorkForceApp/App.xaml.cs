@@ -12,6 +12,8 @@ namespace WorkForceApp
         public App()
         {
             InitializeComponent();
+            
+            //Master
 
             // MainPage = new WorkForceApp.ActivityList();
             // MainPage = new NavigationPage(new MainPage());
