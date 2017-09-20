@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             xmlns:behavious="clr-namespace:WorkForceApp.Views"
+             x:Class="WorkForceApp.ActivityList"
+             BackgroundColor="White"
+             >
+    <ScrollView>
+        
+        <RelativeLayout>
+            <StackLayout x:Name="profileContainer"
+                         HeightRequest="70">
+                <behavious:OutletDetails x:Name="profile"  />
+            </StackLayout>
+           
+            <Frame x:Name="second_panel"
+                HeightRequest="20"
+                CornerRadius="0"  
+                BackgroundColor="#0096C3" 
+                VerticalOptions="StartAndExpand"
+                RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToView,
+                              ElementName=profileContainer,
+                             Property=Height,
+                             Factor=1,
+                             Constant=0}"
+            RelativeLayout.WidthConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=1,
+                             Constant=0}"
+                >
+                <StackLayout  HeightRequest="20">
+                    <Label x:Name="lbl_login_info"    
+                          Text="Logging Thrusday .November 3,2016"
+                          Style="{StaticResource profile_label}"
+                          HorizontalOptions="CenterAndExpand"
+                          FontSize="10" />
+                    
+                    <Label x:Name="lbl_time_info"
+                           Text="Starts from 8.30Am , 0 Hour Logged"
+                           Style="{StaticResource profile_label}"
+                           HorizontalOptions="CenterAndExpand"
+                            FontSize="10"/>
+                </StackLayout>
+            </Frame>
+
+            <StackLayout
+            BackgroundColor="White"
+            HeightRequest="500"
+            WidthRequest="100"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,ElementName=second_panel,Property=Y,Factor=1,Constant=70}"
+            
+            RelativeLayout.WidthConstraint = "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=0}"
+            >
+
+                <Label Text="F2F Customer Visit Target"
+                       FontAttributes="Bold"
+                       TextColor="#005A75"
+                       HorizontalOptions="CenterAndExpand"
+                       FontSize="15"/>
+
+             
+                <StackLayout x:Name="timeLayout">
+
+
+                    <!--Start time  panel-->
+
+
+                    <Label Text="Started At"
+                       FontAttributes="Bold"
+                       Margin="0,10,0,10"
+                       TextColor="#7132A1"
+                       HorizontalOptions="CenterAndExpand"
+                       FontSize="14"
+                
+                />
+
+                    <StackLayout
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center"
+                    Padding="-5"
+                >
+                        <Frame  
+                      Style="{StaticResource Time_Frame}"
+                      Margin="0,0,20,0" >
+                            <Label  Text="08"
+                        Style="{StaticResource Timer_Frame_Time_Label}"
+                        />
+
+                        </Frame>
+
+                        <Frame  
+                    Style="{StaticResource Time_Frame}"  >
+                            <Label Text="08"
+                        Style="{StaticResource Timer_Frame_Time_Label}"
+                        />
+
+                        </Frame>
+
+                        <Label  Text="Am"  TextColor="Black"  VerticalOptions="End"  Margin="0,0,0,0"  FontSize="10"
+                   
+                    />
+                    </StackLayout>
+
+
+                    <!--End time  panel-->
+
+                    <Label Text="Ended At"
+                   FontAttributes="Bold"
+                   Margin="0,20,0,10"
+                   TextColor="#7132A1"
+                   HorizontalOptions="CenterAndExpand"
+                   FontSize="14"
+                  
+                
+                />
+
+                    <StackLayout x:Name="endTimeLayout"
+                Orientation="Horizontal"
+                HorizontalOptions="Center"
+                Padding="-5"
+                >
+                        <Frame  
+                      Style="{StaticResource Time_Frame}"
+                      Margin="0,0,20,0"
+                   >
+                            <Label  Text="08"
+                        Style="{StaticResource Timer_Frame_Time_Label}"
+                        />
+
+                        </Frame>
+
+                        <Frame  
+                    Style="{StaticResource Time_Frame}"  >
+                            <Label Text="08"
+                        Style="{StaticResource Timer_Frame_Time_Label}"
+                        />
+
+                        </Frame>
+
+                        <Label
+                    Text="Am"
+                    TextColor="Black"
+                    VerticalOptions="End"
+                    Margin="0,0,0,0"
+                    FontSize="10"
+                    />
+                    </StackLayout>
+
+                </StackLayout>
+
+            </StackLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</ContentPage>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkForceApp.Views.OutletDetails"
+             >
+
+    <RelativeLayout x:Name="profileContainer"
+                            HeightRequest="70"
+                            RelativeLayout.WidthConstraint="{ConstraintExpression       Type=RelativeToParent,Property=Width,Factor=1}"
+                            BackgroundColor="#3F51B5"
+                              >
+
+        <StackLayout  x:Name="leftPanel"
+                      RelativeLayout.WidthConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=.5,
+                             Constant=0}"
+                         Orientation="Horizontal">
+
+                <Label Text="Outlet Name"
+                       x:Name="outlet_name"
+                       VerticalOptions="Center" 
+                       Style="{StaticResource profile_label}"  
+                       HorizontalOptions="CenterAndExpand"
+                       />
+
+                <BoxView x:Name="box" 
+                  WidthRequest="1"
+                  HeightRequest="70"
+                  BackgroundColor="White"
+                  HorizontalOptions="End"
+                   />
+            </StackLayout>
+           
+           
+            <StackLayout Orientation="Vertical"
+                         RelativeLayout.WidthConstraint =
+      "{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=.5, Constant=0}"
+                         RelativeLayout.HeightConstraint =
+      "{ConstraintExpression Type=RelativeToView, ElementName=leftPanel,Property=Height, Factor=1, Constant=0}"
+                         RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToParent, Property=Width,  Factor=.5, Constant=0}"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand" >
+             
+                <Label Text="72/1 Dhanmondi Dhaka"
+                       VerticalOptions="Center"
+                            Style="{StaticResource profile_label}"  x:Name="outlet_address"
+                       HorizontalOptions="Center"/>
+
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                             >
+                <Button x:Name="start_time_btn"
+                        Style="{StaticResource normal_button_style}"
+                        Clicked="start_time_btn_Clicked"
+                        Text="Start"  FontSize="8" />
+
+
+                <Button  x:Name="map_btn"
+                         Style="{StaticResource normal_button_style}"
+                        
+                         Text="Map" />
+            </StackLayout>
+
+        </StackLayout>
+            
+
+    
+
+     
+
+    </RelativeLayout>
+</ContentView>

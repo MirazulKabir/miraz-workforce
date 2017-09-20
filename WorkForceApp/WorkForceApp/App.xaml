@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkForceApp.App">
+	<Application.Resources>
+
+        <ResourceDictionary>
+            <x:Int32 x:Key="textSize_Profile">20</x:Int32>
+            <Color x:Key="text_color_Profile">White</Color>
+
+            <Style x:Key="profile_Label" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource text_color_Profile}"></Setter>
+                <Setter Property="FontSize" Value="{StaticResource textSize_Profile}"></Setter>
+            </Style>
+
+            <Style x:Key="Time_Frame" TargetType="Frame">
+                
+                <Setter Property="HeightRequest" Value="25"></Setter>
+                <Setter Property="WidthRequest" Value="35"></Setter>
+                <Setter Property="CornerRadius" Value="5"></Setter>
+                <Setter Property="BackgroundColor" Value="White"></Setter>
+                <Setter Property="OutlineColor" Value="Black"></Setter>
+                <Setter Property="HasShadow" Value="True"></Setter>
+            </Style>
+
+            <Style x:Key="Timer_Frame_Time_Label" TargetType="Label">
+
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+                <Setter Property="FontAttributes" Value="Italic"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+
+            </Style>
+
+            <Style x:Key="profile_label" TargetType="Label">
+
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="FontSize" Value="12"></Setter>
+                <Setter Property="FontAttributes" Value="Bold"></Setter>
+                <Setter Property="Margin" Value="0,0,10,0"></Setter>
+                <Setter Property="HorizontalOptions" Value="EndAndExpand"></Setter>
+
+            </Style>
+
+            <Style x:Key="normal_button_style" TargetType="Button">
+
+                <Setter Property="BorderRadius" Value="10"></Setter>
+                <Setter Property="FontSize" Value="8"></Setter>
+                <Setter Property="BackgroundColor" Value="#336699"></Setter>
+                <Setter Property="HeightRequest" Value="35"></Setter>
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
