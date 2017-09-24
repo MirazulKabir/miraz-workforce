@@ -13,7 +13,7 @@ namespace WorkForceApp
         {
             InitializeComponent();
             
-            //Master
+            //Miraz
 
             // MainPage = new WorkForceApp.ActivityList();
             // MainPage = new NavigationPage(new MainPage());

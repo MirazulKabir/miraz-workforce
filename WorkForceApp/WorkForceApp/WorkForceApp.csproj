@@ -49,8 +49,13 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\ActivityClass.cs" />
+    <Compile Include="Model\Appointment.cs" />
+    <Compile Include="Model\Log.cs" />
     <Compile Include="Model\Tasks.cs" />
+    <Compile Include="Model\TaskType.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Model\UserPosition.cs" />
     <Compile Include="MyEntry.cs" />
     <Compile Include="ProfileContainer.xaml.cs">
       <DependentUpon>ProfileContainer.xaml</DependentUpon>
