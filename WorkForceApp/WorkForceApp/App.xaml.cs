@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿
 using Xamarin.Forms;
 
 namespace WorkForceApp
@@ -12,13 +8,12 @@ namespace WorkForceApp
         public App()
         {
             InitializeComponent();
-            
-            //Ovie
+
 
             // MainPage = new WorkForceApp.ActivityList();
             // MainPage = new NavigationPage(new MainPage());
             MainPage = new NavigationPage(new ActivityList());
-           
+
         }
 
         protected override void OnStart()
