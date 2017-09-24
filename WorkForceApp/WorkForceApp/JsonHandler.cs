@@ -1,34 +1,17 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+using WorkForceApp.Database;
+using WorkForceApp.Model;
 
 namespace WorkForceApp
 {
-    public class Userinfo
-    {
-        public string name { get; set; }
-        public string designation { get; set; }
-        public string id { get; set; }
-        public string route { get; set; }
-        public string image { get; set; }
-    }
-
-    public class Appoinment
-    {
-        public string name { get; set; }
-        public string latitude { get; set; }
-        public string longitude { get; set; }
-    }
 
     public class RootObject
     {
-        public List<Userinfo> userinfo { get; set; }
-        public List<Appoinment> appoinments { get; set; }
+        public List<User> userinfo { get; set; }
+        public List<AppointmentClass> appoinments { get; set; }
     }
 
     class JsonHandler
@@ -37,24 +20,25 @@ namespace WorkForceApp
 
         private const string Url = "http://shuruappsolution.com/appointments.json";
         private HttpClient _client = new HttpClient();
-        public ObservableCollection<Appoinment> _appoinment;
-        public ObservableCollection<Userinfo> _userInfo;
+
+        public ObservableCollection<AppointmentClass> _appoinment;
+        public ObservableCollection<User> _userInfo;
 
         public static JsonHandler Instance()
         {
             //get
             //{
-                //if (_jsonInstance == null)
-                //{
-                    //_jsonInstance = new JsonHandler();
-                //}
-                return _jsonInstance;
+            //if (_jsonInstance == null)
+            //{
+            //_jsonInstance = new JsonHandler();
+            //}
+            return _jsonInstance;
             //}
         }
 
         public JsonHandler()
         {
-           
+
         }
 
         public async void MyJsonParser()
@@ -62,8 +46,17 @@ namespace WorkForceApp
             var jsonContent = await _client.GetStringAsync(Url);
             var rootObject = JsonConvert.DeserializeObject<RootObject>(jsonContent);
 
-            _userInfo = new ObservableCollection<Userinfo>(rootObject.userinfo);
-            _appoinment = new ObservableCollection<Appoinment>(rootObject.appoinments);
+            _userInfo = new ObservableCollection<User>(rootObject.userinfo);
+            _appoinment = new ObservableCollection<AppointmentClass>(rootObject.appoinments);
+
+            DbHandler.Instance().ConnectDb();
+
+            IEnumerable<User> user_IE = _userInfo as IEnumerable<User>;
+            IEnumerable<AppointmentClass> appoinment_IE = _appoinment as IEnumerable<AppointmentClass>;
+
+            DbHandler.Instance().InsertData<User>(user_IE);
+            DbHandler.Instance().InsertData<AppointmentClass>(appoinment_IE);
+
         }
 
     }

@@ -1,9 +1,4 @@
-﻿using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using WorkForceApp.Database;
 using WorkForceApp.Model;
 using WorkForceApp.Views;
@@ -16,14 +11,13 @@ namespace WorkForceApp
     public partial class ActivityList : ContentPage
     {
         int i = 0;
-        private SQLiteAsyncConnection _connection;
-        Tasks task;
+
+        AppointmentClass task;
         public ActivityList()
         {
             InitializeComponent();
-            _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
 
-            task = new Tasks { name = "Colect money", outletName = "Cats Eye Outlet", startTime = "10:14", endTime = "Dhanmondi 3A" };
+
 
             BindingContext = task;
             OutletDetails.StartButtonClicked += BtnClicked;
@@ -34,10 +28,11 @@ namespace WorkForceApp
 
         protected override async void OnAppearing()
         {
-            await _connection.CreateTableAsync<Tasks>();
-            var tasks = await _connection.Table<Tasks>().ToListAsync();
-           
-            await _connection.InsertAsync(task);
+            DbHandler.Instance().ConnectDb();
+            DbHandler.Instance().CreateTables();
+
+            JsonHandler._jsonInstance.MyJsonParser();
+            // DbHandler dbHandler = new DbHandler();
             base.OnAppearing();
         }
 
