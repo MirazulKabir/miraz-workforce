@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WorkForceApp.Model
+﻿namespace WorkForceApp.Model
 {
-    class Appointment
+    public class AppointmentClass
     {
         public string id { get; set; }
-        public string title { get; set; }
+        public string name { get; set; }
         public int type_id { get; set; }
         public string date { get; set; }
         public string start_time { get; set; }

@@ -41,6 +41,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Database\DbHandler.cs" />
     <Compile Include="Database\ISQLiteDb.cs" />
     <Compile Include="DateTimeNoda.cs" />
     <Compile Include="Extentions\CustomEntryCell.xaml.cs">
@@ -51,9 +52,8 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\ActivityClass.cs" />
-    <Compile Include="Model\Appointment.cs" />
+    <Compile Include="Model\AppointmentClass.cs" />
     <Compile Include="Model\Log.cs" />
-    <Compile Include="Model\Tasks.cs" />
     <Compile Include="Model\TaskType.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\UserPosition.cs" />
