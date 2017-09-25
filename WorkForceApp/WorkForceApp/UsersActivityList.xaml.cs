@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using WorkForceApp.Activity_Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace WorkForceApp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class UsersActivityList : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class UsersActivityList : ContentPage
+    {
         public DateTimeNoda dateTimeNoda;
 
-        public UsersActivityList () 
-		{
-			InitializeComponent ();
+        public UsersActivityList()
+        {
+            InitializeComponent();
             dateTimeNoda = new DateTimeNoda();
 
             task_list.ItemsSource = JsonHandler._jsonInstance._appoinment;
@@ -37,7 +33,8 @@ namespace WorkForceApp
                 Application.Current.Properties["date"] = date;
                 Application.Current.SavePropertiesAsync();
             }
-            else {
+            else
+            {
                 String LoggedInTime = Application.Current.Properties["startTime"].ToString();
                 String LoggedOutTime = time;
                 String duration = dateTimeNoda.getTimeDifference(LoggedInTime, LoggedOutTime);
@@ -47,13 +44,14 @@ namespace WorkForceApp
             }
         }
 
-        private void optimized_route_btn_Clicked(object sender, EventArgs e)
+        private async void assignments__btn_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new AssignmentList());
         }
 
-        private void setLogedInfoToText(String dateTime) {
-         
+        private void setLogedInfoToText(String dateTime)
+        {
+
             String[] spltDateNTime = dateTime.Split('T');
             String date = spltDateNTime[0];
             String time = spltDateNTime[1];
@@ -64,7 +62,7 @@ namespace WorkForceApp
             String year = spltDate[0];
             lbl_login_info.Text = "Logged in " + day + ", " + monthName + " " + spltDate[1] + ", " + year;
             lbl_time_info.Text = "Started from " + dateTimeNoda.convert24To12(time);
-            
+
 
         }
     }

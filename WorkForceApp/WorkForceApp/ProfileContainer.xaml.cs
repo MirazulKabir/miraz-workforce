@@ -1,4 +1,7 @@
-﻿using Xamarin.Forms;
+﻿using System.Collections.ObjectModel;
+using WorkForceApp.Database;
+using WorkForceApp.Model;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace WorkForceApp
@@ -6,6 +9,8 @@ namespace WorkForceApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfileContainer : ContentView
     {
+        //   ObservableCollection<User> userCollection;
+        private ObservableCollection<User> userCollection;
 
         string profile_name;
         string profile_designation;
@@ -32,10 +37,19 @@ namespace WorkForceApp
         public ProfileContainer()
         {
             InitializeComponent();
-            //BindingContext = new User { name = "Ovie", designation = "No Designation", route_names = "Dhanmondi 3A" };
-            /*	BindingContext = new User { name = JsonHandler._jsonInstance._userInfo[0].name,
-                designation = JsonHandler._jsonInstance._userInfo[0].designation,
-                route_names = JsonHandler._jsonInstance._userInfo[0].route_names};*/
+
+            habla();
+
+        }
+
+        async void habla()
+        {
+            // SQLiteAsyncConnection _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
+            var users = await DbHandler._dbHandlerInstance.GetConnection().Table<User>().ToListAsync();
+            userCollection = new ObservableCollection<User>(users);
+            User u = userCollection[0];
+
+            BindingContext = u;
         }
     }
 }

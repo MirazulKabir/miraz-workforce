@@ -1,75 +1,85 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:WorkForceApp;assembly=WorkForceApp" 
-             x:Class="WorkForceApp.UsersActivityList"
-             BackgroundColor="White">
+<ContentPage
+    x:Class="WorkForceApp.UsersActivityList"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:WorkForceApp;assembly=WorkForceApp"
+    BackgroundColor="White">
 
     <RelativeLayout>
 
-        <StackLayout x:Name="profileContainer"
-                     HeightRequest="120">
-            <local:ProfileContainer x:Name="profile"  />
+        <StackLayout x:Name="profileContainer" HeightRequest="120">
+            <local:ProfileContainer x:Name="profile" />
         </StackLayout>
 
-        <StackLayout x:Name="button_panel"
-                BackgroundColor="White" 
-                VerticalOptions="StartAndExpand"
-                RelativeLayout.YConstraint =
-      "{ConstraintExpression Type=RelativeToView,
-                              ElementName=profileContainer,
-                             Property=Height,
-                             Factor=1,
-                             Constant=0}"
-            RelativeLayout.WidthConstraint =
-      "{ConstraintExpression Type=RelativeToParent,
-                             Property=Width,
-                             Factor=1,
-                             Constant=0}"
-                >
-            <StackLayout Orientation="Horizontal"
-                                 HorizontalOptions="Center"
-                         Margin="5">
+        <StackLayout
+            x:Name="button_panel"
+            BackgroundColor="White"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=1,
+                                                                  Constant=0}"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                                              ElementName=profileContainer,
+                                                              Property=Height,
+                                                              Factor=1,
+                                                              Constant=0}"
+            VerticalOptions="StartAndExpand">
+            <StackLayout
+                Margin="5"
+                HorizontalOptions="Center"
+                Orientation="Horizontal">
 
-                <Button x:Name="start_time_btn"
-                                Clicked="start_time_btn_Clicked"
-                                BorderRadius="10" Text="Start"  FontSize="8"
-                                BackgroundColor="#336699" HeightRequest="35" 
-                                TextColor="White"
-                            />
+                <Button
+                    x:Name="start_time_btn"
+                    BackgroundColor="#336699"
+                    BorderRadius="10"
+                    Clicked="start_time_btn_Clicked"
+                    FontSize="8"
+                    HeightRequest="35"
+                    Text="Start"
+                    TextColor="White" />
 
-                <Button  x:Name="optimized_route_btn"
-                                 HorizontalOptions="Center"
-                                 Clicked="optimized_route_btn_Clicked"
-                                 BackgroundColor="#336699"
-                                 Text="Optimize Route" BorderRadius="10"  HeightRequest="35"
-                                 TextColor="White"
-                                 FontSize="8" />
+                <Button
+                    x:Name="optimized_route_btn"
+                    BackgroundColor="#336699"
+                    BorderRadius="10"
+                    Clicked="assignments__btn_Clicked"
+                    FontSize="8"
+                    HeightRequest="35"
+                    HorizontalOptions="Center"
+                    Text="Appoinments"
+                    TextColor="White" />
+
+
 
             </StackLayout>
 
-            <Label x:Name="lbl_login_info"    
-                          TextColor="Black"
-                          Style="{StaticResource profile_label}"
-                          HorizontalOptions="CenterAndExpand"
-                          FontSize="10" />
+            <Label
+                x:Name="lbl_login_info"
+                FontSize="10"
+                HorizontalOptions="CenterAndExpand"
+                Style="{StaticResource profile_label}"
+                TextColor="Black" />
 
-            <Label x:Name="lbl_time_info"
-                           TextColor="Black"
-                           Style="{StaticResource profile_label}"
-                           HorizontalOptions="CenterAndExpand"
-                           FontSize="10"/>
+            <Label
+                x:Name="lbl_time_info"
+                FontSize="10"
+                HorizontalOptions="CenterAndExpand"
+                Style="{StaticResource profile_label}"
+                TextColor="Black" />
 
-            <Label Text="Todays task List"
-                   FontAttributes="Bold"
-                   TextColor="#005A75"
-                   HorizontalOptions="CenterAndExpand"
-                   FontSize="15"/>
+            <Label
+                FontAttributes="Bold"
+                FontSize="15"
+                HorizontalOptions="CenterAndExpand"
+                Text="Todays task List"
+                TextColor="#005A75" />
 
             <ListView x:Name="task_list">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding name}"/>
+                        <TextCell Text="{Binding name}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -78,6 +88,6 @@
 
 
     </RelativeLayout>
-    
-    
+
+
 </ContentPage>

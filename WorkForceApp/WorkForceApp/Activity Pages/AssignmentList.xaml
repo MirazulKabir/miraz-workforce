@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="WorkForceApp.Activity_Pages.AssignmentList"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:WorkForceApp;assembly=WorkForceApp">
+    <RelativeLayout>
+
+        <StackLayout x:Name="profileContainer" HeightRequest="120">
+            <local:ProfileContainer x:Name="profile" />
+        </StackLayout>
+
+        <StackLayout
+            x:Name="button_panel"
+            BackgroundColor="White"
+            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=1,
+                                                                  Constant=0}"
+            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                                              ElementName=profileContainer,
+                                                              Property=Height,
+                                                              Factor=1,
+                                                              Constant=0}"
+            VerticalOptions="StartAndExpand">
+
+
+
+            <ListView x:Name="appoinment_list">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding name}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+
+
+    </RelativeLayout>
+</ContentPage>

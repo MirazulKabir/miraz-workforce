@@ -10,8 +10,8 @@ namespace WorkForceApp
 
     public class RootObject
     {
-        public List<User> userinfo { get; set; }
-        public List<AppointmentClass> appoinments { get; set; }
+        public List<User> user { get; set; }
+        public List<AppointmentClass> appointment { get; set; }
     }
 
     class JsonHandler
@@ -46,8 +46,8 @@ namespace WorkForceApp
             var jsonContent = await _client.GetStringAsync(Url);
             var rootObject = JsonConvert.DeserializeObject<RootObject>(jsonContent);
 
-            _userInfo = new ObservableCollection<User>(rootObject.userinfo);
-            _appoinment = new ObservableCollection<AppointmentClass>(rootObject.appoinments);
+            _userInfo = new ObservableCollection<User>(rootObject.user);
+            _appoinment = new ObservableCollection<AppointmentClass>(rootObject.appointment);
 
             DbHandler.Instance().ConnectDb();
 
