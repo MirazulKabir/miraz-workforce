@@ -33,6 +33,18 @@ namespace WorkForceApp.Database
                 _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
             }
 
+
+
+        }
+
+        public SQLiteAsyncConnection GetConnection()
+        {
+            if (_connection == null)
+            {
+                return _connection = DependencyService.Get<ISQLiteDb>().GetConnection();
+            }
+            else return _connection;
+
         }
 
         public async void CreateTables()
@@ -49,7 +61,15 @@ namespace WorkForceApp.Database
         {
             //await _connection.InsertAsync(obj);
             await _connection.InsertAllAsync(obj);
+            //var query = _connection.Table<User>().Where(v => v.name.StartsWith("A"));
+            // var query2 = _connection.Table<User>();
+
+
+
+
         }
+
+
 
     }
 

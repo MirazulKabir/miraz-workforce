@@ -4,9 +4,9 @@
           
            x:Class="WorkForceApp.Extentions.CustomEntryCell">
     
-    <StackLayout Orientation="Horizontal" Padding="13,0">
+    <StackLayout Orientation="Horizontal" Padding="13,0" BackgroundColor="White">
         <Label Text="Start "
-               TextColor="Black"
+               TextColor="Silver"
                VerticalOptions="Center"/>
 
        
