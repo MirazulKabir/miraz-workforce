@@ -1,4 +1,5 @@
 ﻿
+using WorkForceApp.Activity_Pages;
 using Xamarin.Forms;
 
 namespace WorkForceApp
@@ -12,7 +13,7 @@ namespace WorkForceApp
 
             // MainPage = new WorkForceApp.ActivityList();
             // MainPage = new NavigationPage(new MainPage());
-            MainPage = new NavigationPage(new UsersActivityList());
+            MainPage = new NavigationPage(new AssignmentList());
 
         }
 
