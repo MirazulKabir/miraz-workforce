@@ -26,10 +26,32 @@
 
 
 
-            <ListView x:Name="appoinment_list">
+            <ListView
+                x:Name="appoinment_list"
+                ItemSelected="appoinment_list_ItemSelected"
+                ItemTapped="appoinment_list_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding name}" />
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="{Binding name}"
+                                    VerticalOptions="Center" />
+                                <Button
+                                    x:Name="map_btn"
+                                    Clicked="map_btn_Clicked"
+                                    CommandParameter="{Binding .}"
+                                    ContentLayout="Top,0"
+                                    Text="map" />
+
+                                <Image
+                                    Aspect="AspectFit"
+                                    BackgroundColor="Silver"
+                                    HorizontalOptions="End"
+                                    Source="location.png" />
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
